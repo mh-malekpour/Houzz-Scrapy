@@ -6,6 +6,7 @@ import json
 class HouzzSpider(scrapy.Spider):
     name = 'houzz'
 
+    # 36 product per page -> 36 * pagecount
     custom_settings = {'CLOSESPIDER_PAGECOUNT': 0}
 
     start_urls = [
@@ -19,7 +20,10 @@ class HouzzSpider(scrapy.Spider):
         super().__init__(**kwargs)
 
     def parse(self, response, **kwargs):
-        category = response.css(".mb0::text").get()[:-1]
+        try:
+            category = response.css(".mb0::text").get()[:-1]
+        except:
+            pass
 
         all_div_product = response.css(
             ".hz-product-card.hz-track-me.hz-product-card--medium.hz-br-container--three-grid.hz-product-card__browse"
