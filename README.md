@@ -1,6 +1,6 @@
 # Houzz Scrapy
 
-Crawl [houzz.com](houzz.com) data by scrapy.
+Crawl [houzz.com](houzz.com) data by scrapy. I used  **scrapy-user-agent** and **scrapy-proxy-pool** libraries to bypass the restriction.
 
 ## Settings
 
